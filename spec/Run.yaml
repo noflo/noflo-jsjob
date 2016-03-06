@@ -1,0 +1,26 @@
+topic: "jsjob/Run"
+name: "JsJob Run"
+timeout: 10000
+fixture:
+ type: 'fbp'
+ data: |
+  # @runtime noflo-nodejs
+  INPORT=c.IN:IN
+  INPORT=c.CODE:CODE
+  OUTPORT=r.OUT:OUT
+
+  '8091' -> PORT c(jsjob/Run)
+  c(jsjob/Run) OUT -> IN r(core/Repeat)
+
+cases:
+-
+  name: 'running a helloworld'
+  assertion: 'should return expected object'
+  inputs:
+    in:
+      hello: 'World'
+    code: 'http://localhost:8090/hellojsjob.js'
+  expect:
+    out:
+      equals:
+        hello: 'jsjob'

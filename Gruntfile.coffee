@@ -27,14 +27,21 @@ module.exports = ->
             value: 80
             level: 'warn'
 
+    connect:
+      fixtures:
+        options:
+          port: 8090
+          base: 'spec/fixtures'
+
   # Grunt plugins used for building
   @loadNpmTasks 'grunt-noflo-manifest'
 
   # Grunt plugins used for testing
   @loadNpmTasks 'grunt-mocha-test'
   @loadNpmTasks 'grunt-coffeelint'
+  @loadNpmTasks 'grunt-contrib-connect'
 
   # Our local tasks
   @registerTask 'build', ['noflo_manifest']
-  @registerTask 'test', ['coffeelint', 'build', 'mochaTest']
+  @registerTask 'test', ['coffeelint', 'build', 'connect', 'mochaTest']
   @registerTask 'default', ['test']
