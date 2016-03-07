@@ -24,3 +24,16 @@ cases:
     out:
       equals:
         hello: 'jsjob'
+-
+  name: 'adding numbers'
+  assertion: 'should return object with plus ones'
+  inputs:
+    in:
+      hello: 1
+      world: 41
+    code: 'http://localhost:8090/addone.js'
+  expect:
+    out:
+      equals:
+        hello: 2
+        world: 42

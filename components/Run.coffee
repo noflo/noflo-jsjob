@@ -41,12 +41,12 @@ exports.getComponent = ->
       c.runner = new jsjob.Runner c.params
       c.runner.start (err) ->
         return callback err if err
-        c.runner.runJob data.code, data.input, options, (err, result, details) ->
+        c.runner.runJob data.code, data.in, options, (err, result, details) ->
           return callback err if err
           out.send result
           do callback
       return
-    c.runner.runJob data.code, data.input, options, (err, result, details) ->
+    c.runner.runJob data.code, data.in, options, (err, result, details) ->
       return callback err if err
       out.send result
       do callback
