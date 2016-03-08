@@ -37,3 +37,14 @@ cases:
       equals:
         hello: 2
         world: 42
+-
+  name: 'solving a sudoku board with finitedomain.coffee'
+  assertion: 'should return expected results'
+  inputs:
+    in:
+      board: ".94...13..............76..2.8..1.....32.........2...6.....5.4.......8..7..63.4..8"
+    code: 'http://the-grid.github.io/jsjob/examples/sudoku.js'
+  expect:
+    out:
+      path: '$.1'
+      equals: 9
