@@ -46,5 +46,5 @@ cases:
     code: 'http://the-grid.github.io/jsjob/examples/sudoku.js'
   expect:
     out:
-      path: '$.1'
-      equals: 9
+      path: '$.A1'
+      equals: 7
