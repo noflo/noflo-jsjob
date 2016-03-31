@@ -2,6 +2,7 @@
   "name": "noflo-jsjob",
   "version": "0.0.2",
   "description": "Sandboxed JavaScript execution components for NoFlo",
+  "keywords": ["noflo"],
   "scripts": {
     "test": "grunt test"
   },

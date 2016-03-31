@@ -11,3 +11,11 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
+deploy:
+  provider: npm
+  email: henri.bergius@iki.fi
+  api_key:
+    secure: ZKgnsUX3PBlfatbsW0ZXZri8VcNyZhrd7xh8T5QdtGM9yBjOR6PhymqquUX0j/APILqfpg0eaVKNJ4L8p6tGKGMue2wYbO9kxKQSMC4GL1efsGoQUAySXoCzFvg5RAEJkAOogHOFbIWG1KfI1EQeKCL/FjIh2m/RZLzC1yJ/Sm73R7bnsDRgCaQ/zFmIATiuJx/M3ZGGLo2RhioHmaRCyUGIEvPHojY28VuXRbI373vzI9sAPmp61/bWtHXpAtWdqGRKLDy/U/C2WUVpkXqiXZuxmugCxu2Pi4dy0VVQj7Mmgsxt1QzHp5jv/QDAVTdgrZrxLD8WN0DUAX21g0fgU2CVQEskq7I9DI3HRMguY0M7TzHUD1BMTiiBi7lGEOj3ryWY0wbuYeNzukRbD7LeLhQ0SWPBMsgTAQlJR4r5yDPhWXkHX9SWJggondMrRoYLxDD4eWv258h2ApN/MOi7h1KQ8JzpYS+YeA9bnJ5yoHnB3Wl45drF/lWnmq/BaOIc1FB21sfI5FoKlC9HepHzSPr+wotu8jK43UjbuyGO1bxbHlw7v3+3dr3yWX0awS/Smb9jgoDIJyJGI4pa/mE8Drs9XD11uU4HLp2fJifQ4jYciPkl7PCcwiHIOlWZgiNMsn4dFjm35Q2KCWJjYV5VM8yZoaN3j+6KRmP0XoPdMdE=
+  on:
+    tags: true
+    repo: noflo/noflo-jsjob

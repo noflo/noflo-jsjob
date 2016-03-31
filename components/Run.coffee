@@ -19,6 +19,7 @@ exports.getComponent = ->
     description: 'Port number for running the HTTP server used in solving'
     required: true
     default: 8088
+    control: true
   c.outPorts.add 'out',
     datatype: 'object'
   c.outPorts.add 'error',
@@ -30,23 +31,24 @@ exports.getComponent = ->
     c.runner.stop ->
     c.runner = null
 
-  noflo.helpers.WirePattern c,
-    in: ['code', 'in']
-    params: ['port']
-    async: true
-    forwardGroups: true
-  , (data, groups, out, callback) ->
-    options = data.options or {}
+  c.process (input, output) ->
+    return unless input.has 'code', 'in'
+    [code, data, port] = input.get 'code', 'in', 'port'
+    return unless code.type is 'data'
+    return unless data.type is 'data'
+
+    options = {}
     unless c.runner
-      c.runner = new jsjob.Runner c.params
+      c.runner = new jsjob.Runner
+        port: parseInt port
       c.runner.start (err) ->
-        return callback err if err
-        c.runner.runJob data.code, data.in, options, (err, result, details) ->
-          return callback err if err
-          out.send result
-          do callback
+        return output.sendDone err if err
+        c.runner.runJob code.data, data.data, options, (err, result, details) ->
+          return output.sendDone err if err
+          output.sendDone
+            out: result
       return
-    c.runner.runJob data.code, data.in, options, (err, result, details) ->
-      return callback err if err
-      out.send result
-      do callback
+    c.runner.runJob code.data, data.data, options, (err, result, details) ->
+      return output.sendDone err if err
+      output.sendDone
+        out: result
