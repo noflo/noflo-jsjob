@@ -43,7 +43,7 @@ cases:
   inputs:
     in:
       board: ".94...13..............76..2.8..1.....32.........2...6.....5.4.......8..7..63.4..8"
-    code: 'http://the-grid.github.io/jsjob/examples/sudoku.js'
+    code: 'http://flowhub.github.io/jsjob/examples/sudoku.js'
   expect:
     out:
       path: '$.A1'
