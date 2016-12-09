@@ -22,10 +22,10 @@
     "coffee-script": "^1.12.1",
     "fbp-spec": "^0.1.3",
     "grunt": "^1.0.1",
-    "grunt-coffeelint": "0.0.15",
+    "grunt-coffeelint": "0.0.16",
     "grunt-contrib-connect": "^1.0.0",
     "grunt-mocha-test": "^0.12.7",
-    "grunt-noflo-manifest": "^0.1.11",
+    "grunt-noflo-manifest": "^0.1.12",
     "mocha": "^2.5.0",
     "noflo-core": "^0.3.0",
     "noflo-nodejs": "^0.7.0"
