@@ -32,10 +32,8 @@ exports.getComponent = ->
     c.runner = null
 
   c.process (input, output) ->
-    return unless input.has 'code', 'in'
-    [code, data, port] = input.get 'code', 'in', 'port'
-    return unless code.type is 'data'
-    return unless data.type is 'data'
+    return unless input.hasData 'code', 'in'
+    [code, data, port] = input.getData 'code', 'in', 'port'
 
     options = {}
     unless c.runner
@@ -43,12 +41,12 @@ exports.getComponent = ->
         port: parseInt port
       c.runner.start (err) ->
         return output.sendDone err if err
-        c.runner.runJob code.data, data.data, options, (err, result, details) ->
+        c.runner.runJob code, data, options, (err, result, details) ->
           return output.sendDone err if err
           output.sendDone
             out: result
       return
-    c.runner.runJob code.data, data.data, options, (err, result, details) ->
+    c.runner.runJob code, data, options, (err, result, details) ->
       return output.sendDone err if err
       output.sendDone
         out: result
