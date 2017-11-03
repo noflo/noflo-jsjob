@@ -19,24 +19,17 @@
   },
   "homepage": "https://github.com/noflo/noflo-jsjob#readme",
   "devDependencies": {
-    "coffee-script": "^1.12.1",
+    "coffeescript": "^2.0.2",
     "fbp-spec": "^0.2.0",
     "grunt": "^1.0.1",
     "grunt-coffeelint": "0.0.16",
     "grunt-contrib-connect": "^1.0.0",
     "grunt-mocha-test": "^0.13.2",
-    "grunt-noflo-manifest": "^0.1.12",
     "mocha": "^4.0.0",
-    "noflo-core": "^0.4.0",
     "noflo-nodejs": "0.x >= 0.8"
   },
   "dependencies": {
     "jsjob": "^0.10.2",
-    "noflo": "0.x >= 0.8"
-  },
-  "noflo": {
-    "components": {
-      "Run": "components/Run.coffee"
-    }
+    "noflo": "^1.0.0"
   }
 }
