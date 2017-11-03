@@ -7,10 +7,9 @@ fixture:
   # @runtime noflo-nodejs
   INPORT=c.IN:IN
   INPORT=c.CODE:CODE
-  OUTPORT=r.OUT:OUT
+  OUTPORT=c.OUT:OUT
 
   '8091' -> PORT c(jsjob/Run)
-  c(jsjob/Run) OUT -> IN r(core/Repeat)
 
 cases:
 -
